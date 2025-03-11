@@ -21,6 +21,7 @@ module sdcio-srl_nokia-bgp-evpn-deviations {
     }
 
   deviation "/srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols/srl_nokia-netinst:bgp-evpn/srl_nokia-netinst:bgp-instance/srl_nokia-netinst:id" {
+    description "The original leafref is an absolute path. Which would then cover multiple network-instances, which is wrong. The id should exist in the local NI.";
     deviate replace {
       type leafref {
         path "../../../srl_bgp-vpn:bgp-vpn/srl_bgp-vpn:bgp-instance/srl_bgp-vpn:id";
