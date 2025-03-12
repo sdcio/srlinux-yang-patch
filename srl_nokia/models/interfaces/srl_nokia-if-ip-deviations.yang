@@ -58,21 +58,21 @@ module sdcio-srl-if-ip-deviations {
     }
   }
 
-  deviation "/srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:ipv4/srl_nokia-if:address" {
+  deviation "/srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:ipv4" {
     description
       "Missing a check that for system0 interface only a single IP-Prefix is allowed per subinterface.";
     deviate add {
-      must "not(../../../srl_nokia-if:name = 'system0') or count(../srl_nokia-if:address) <= 1" {
+      must "not(../../srl_nokia-if:name = 'system0') or count(./srl_nokia-if:address) <= 1" {
         error-message "Only a single prefix is allowed when the interface name is system0.";
       }
     }
   }
 
-  deviation "/srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:ipv6/srl_nokia-if:address" {
+  deviation "/srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:ipv6" {
     description
       "Missing a check that for system0 interface only a single IP-Prefix is allowed per subinterface.";
     deviate add {
-      must "not(../../../srl_nokia-if:name = 'system0') or count(../srl_nokia-if:address) <= 1" {
+      must "not(../../srl_nokia-if:name = 'system0') or count(./srl_nokia-if:address) <= 1" {
         error-message "Only a single prefix is allowed when the interface name is system0.";
       }
     }
